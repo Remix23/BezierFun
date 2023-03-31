@@ -6,7 +6,10 @@ find_package(raylib 3.0 REQUIRED) # Requires at least version 3.0
 set (CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 17) # Requires C11 standard
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+file (GLOB SOURCES "src/*.cpp")
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+include_directories("headers")
 
 target_link_libraries(${PROJECT_NAME} raylib)
 
